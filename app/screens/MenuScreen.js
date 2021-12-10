@@ -2,10 +2,11 @@ import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { connect } from 'react-redux';
 import { getDishes } from '../redux/actionCreators';
+import { useEffect } from 'react';
 
 const mapStateToProps = (state) => {
     return {
-        dishes = state.dishes,
+        dishes: state.dishes,
     }
 }
 

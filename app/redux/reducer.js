@@ -6,8 +6,8 @@ const INITIAL_STATE = {
 
 export const reducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case value:
-            break;
+        // case value:
+        //     break;
 
         default:
             return state;
