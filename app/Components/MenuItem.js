@@ -1,15 +1,16 @@
 import React from 'react';
 import { View, StyleSheet, Image, TouchableHighlight, Text } from 'react-native';
-import { withSafeAreaInsets } from 'react-native-safe-area-context';
 
 function MenuItem(props) {
     return (
-        <TouchableHighlight>
+        <TouchableHighlight onPress={props.selectDish}>
             <View style={styles.container}>
                 <Image style={styles.image} source={{ uri: props.item.image }} />
                 <View style={styles.details}>
                     <Text style={styles.name}>{props.item.name}</Text>
-                    <Text style={styles.description}>{props.item.description}</Text>
+                    <Text style={styles.description} numberOfLines={3}>
+                        {props.item.description}
+                    </Text>
                 </View>
             </View>
         </TouchableHighlight>
