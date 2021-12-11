@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, FlatList, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { getDishes } from '../redux/actionCreators';
 import { useEffect } from 'react';
+import MenuItem from '../Components/MenuItem';
 
 const mapStateToProps = (state) => {
     return {
@@ -22,8 +23,13 @@ function MenuScreen(props) {
     }, []);
     return (
         <View>
-            <Text>Menu Screen</Text>
-            <Button color='rgba(53, 173, 177, 0.9)' onPress={() => props.navigation.navigate('Dish Detail')} title="Press" />
+            <FlatList
+                data={props.dishes}
+                renderItem={
+                    ({ item }) => <MenuItem item={item} />
+                }
+                keyExtractor={item => item.id.toString()}
+            />
         </View>
     )
 }
